@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
 
-df=pd.read_csv('E:/googleplaystore3-1.csv',na_values='#')
+df=pd.read_csv('E:/Data Science/Data Science Course tihe/Data Sets/googleplaystore3-1.csv',na_values='#')
 #'''
 df.describe()  # give information about numeric columns
 df.describe(include="all")#Similar to summary in R
