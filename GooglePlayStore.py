@@ -118,8 +118,8 @@ pd.Timestamp('1.9.2020').month           # 1
 pd.Timestamp('1.9.2020').month_name()    # January
 
 pip install persiantools
-from persiantools.jdatetime import Jalalidate
-v=Jalalidate(pd.Timestamp('1/9/2020'))
+from persiantools.jdatetime import JalaliDate
+v=JalaliDate(pd.Timestamp('1/9/2020'))
 v.today()
 pd.Timedelta()
 
@@ -146,13 +146,36 @@ df2.count()
 df2.agg({"Rating":['mean','std']})#Compute the mean and standard deviation of Rating for each level of variable Type
 df3=df2.agg({"Rating":['mean','std'],"Reviews":['mean','std'],"Updates":['mean','std']})
 df2.get_group('Free')   # note that only groupby has this function and dataframe has not it
+''' 
+           X  ... Updates
+0          0  ...    2148
+1          1  ...    2140
+2          2  ...    1942
+3          3  ...    1996
+4          4  ...    1984
+     ...  ...     ...
+10833  10835  ...    2613
+10834  10836  ...    2314
+10835  10837  ...    1968
+10837  10839  ...    3232
+10838  10840  ...    1949
 
+[9671 rows x 9 columns]'''
 
 'Multi index dataframe'
 df3.iloc[:,1]
 df3.columns
 df3.loc[:,['Reviews','Rating']] # recall two column
 df3.loc[:,('Reviews', 'std')]#reCall one column and its sub column
+'''
+                     Reviews                  Rating          
+                        mean           std      mean       std
+Type                                                          
+Free           490178.951960  3.105753e+06  4.186685  0.511356
+Not Available  254051.113924  1.613829e+06  4.179883  0.532431
+Paid            11979.277926  1.247535e+05  4.267205  0.551468
+'''
+
 df3.loc['Free',('Reviews', 'std')]#Call an element using its row and column names
 df3.loc[:,[('Rating','mean'),('Reviews','std')]]
 df3.loc['Paid',['Reviews','Updates']]
